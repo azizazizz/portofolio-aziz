@@ -1,0 +1,115 @@
+.hero {
+  padding-top: 140px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 8px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 25%, transparent);
+}
+
+.hero-name {
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+
+.hero-role {
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--accent);
+  font-weight: 500;
+  min-height: 1.4em;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 3px;
+  background: var(--accent);
+  vertical-align: -2px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-bio {
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.btn {
+  font-size: 14px;
+  border-radius: 6px;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-primary {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 12px 22px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-soft);
+}
+
+.btn-ghost {
+  color: var(--text);
+  padding: 12px 4px;
+}
+
+.btn-ghost:hover {
+  color: var(--accent);
+}
+
+.btn-ghost span {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.btn-ghost:hover span {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 72px;
+  }
+}

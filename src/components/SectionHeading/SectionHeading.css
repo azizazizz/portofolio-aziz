@@ -1,0 +1,27 @@
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 20px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+}
+
+.section-heading .num {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.section-heading .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  min-width: 40px;
+}
+
+@media (max-width: 560px) {
+  .section-heading {
+    font-size: 17px;
+    gap: 10px;
+  }
+}

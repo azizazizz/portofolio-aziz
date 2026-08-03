@@ -1,0 +1,150 @@
+:root {
+  /* dark theme (default) */
+  --bg: #0b0d10;
+  --bg-elevated: #14161a;
+  --bg-inset: #0f1114;
+  --bg-hover: #191c21;
+
+  --border: #23262c;
+  --border-strong: #34383f;
+
+  --text: #a8adb6;
+  --text-dim: #62666f;
+  --text-bright: #edeef0;
+
+  --accent: #d9a441;
+  --accent-soft: rgba(217, 164, 65, 0.1);
+  --accent-contrast: #14161a;
+
+  --green: #6fae83;
+  --blue: #6e9bc4;
+  --pink: #c081a3;
+  --purple: #9c8ec9;
+  --red: #c56b62;
+
+  --shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme='light'] {
+  --bg: #faf9f6;
+  --bg-elevated: #ffffff;
+  --bg-inset: #f1efe9;
+  --bg-hover: #eeece4;
+
+  --border: #e3e0d7;
+  --border-strong: #cbc7b9;
+
+  --text: #504e46;
+  --text-dim: #8a8778;
+  --text-bright: #1c1b17;
+
+  --accent: #9c6b1f;
+  --accent-soft: rgba(156, 107, 31, 0.1);
+  --accent-contrast: #ffffff;
+
+  --green: #4a8560;
+  --blue: #3f6f9c;
+  --pink: #a15080;
+  --purple: #6b57a3;
+  --red: #ad4c40;
+
+  --shadow: 0 16px 40px -12px rgba(28, 27, 23, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-mono:
+    'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas,
+    'Liberation Mono', monospace;
+  --radius: 8px;
+  --content-width: 860px;
+
+  color-scheme: dark light;
+  color: var(--text);
+  background: var(--bg);
+  font: 16px/1.65 var(--font-mono);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  min-height: 100svh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+main {
+  flex: 1;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-bright);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-bright);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-mono);
+  cursor: pointer;
+}
+
+.section {
+  width: min(var(--content-width), 100%);
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 20px;
+  }
+}
