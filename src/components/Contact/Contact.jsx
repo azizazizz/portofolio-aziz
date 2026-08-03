@@ -1,10 +1,15 @@
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import SectionHeading from '../SectionHeading/SectionHeading'
 import './Contact.css'
 
 const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com/yourname' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/yourname' },
-  { label: 'Twitter', href: 'https://twitter.com/yourname' },
+  { label: 'GitHub', href: 'https://github.com/azizazizz', icon: FaGithub, color: null },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/nur-aziz-raihan/',
+    icon: FaLinkedin,
+    color: '#0a66c2',
+  },
 ]
 
 function Contact() {
@@ -23,11 +28,21 @@ function Contact() {
         </a>
 
         <div className="contact-socials">
-          {SOCIALS.map((social) => (
-            <a href={social.href} target="_blank" rel="noreferrer" key={social.label}>
-              {social.label}
-            </a>
-          ))}
+          {SOCIALS.map((social) => {
+            const Icon = social.icon
+            return (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                key={social.label}
+                style={{ '--social-color': social.color || 'var(--accent)' }}
+              >
+                <Icon className="social-icon" />
+                {social.label}
+              </a>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { useTypewriter } from '../../hooks/useTypewriter'
 import './Hero.css'
 
-const ROLES = ['Full-Stack Developer.', 'Open Source Contributor.', 'Problem Solver.']
+const ROLES = ['Full-Stack Web Developer.', 'UI/UX Enthusiast.', 'Mobile App Developer.']
 
 function Hero() {
   const typed = useTypewriter(ROLES)
@@ -10,10 +10,10 @@ function Hero() {
     <section id="home" className="hero section">
       <p className="hero-status">
         <span className="status-dot" />
-        Available for new opportunities
+        Open to new opportunities
       </p>
 
-      <h1 className="hero-name">Your Name</h1>
+      <h1 className="hero-name">Nur Aziz Raihan</h1>
 
       <p className="hero-role">
         <span>{typed}</span>
@@ -21,8 +21,9 @@ function Hero() {
       </p>
 
       <p className="hero-bio">
-        Placeholder bio — replace with a short introduction covering what you build, the kind
-        of problems you like to solve, and what you're currently focused on.
+        Informatics graduate focused on full-stack web development and UI/UX design —
+        combining backend logic with user-friendly interfaces to build practical software
+        solutions.
       </p>
 
       <div className="hero-cta">

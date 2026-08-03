@@ -35,16 +35,38 @@
 
 .contact-socials {
   display: flex;
-  gap: 24px;
+  gap: 14px;
   margin-top: 20px;
 }
 
 .contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   color: var(--text-dim);
-  transition: color 0.15s ease;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.social-icon {
+  width: 15px;
+  height: 15px;
 }
 
 .contact-socials a:hover {
-  color: var(--accent);
+  color: var(--text-bright);
+  border-color: var(--social-color);
+  background: color-mix(in srgb, var(--social-color) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.contact-socials a:hover .social-icon {
+  color: var(--social-color);
 }

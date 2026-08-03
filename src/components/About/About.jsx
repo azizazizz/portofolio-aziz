@@ -1,7 +1,7 @@
 import SectionHeading from '../SectionHeading/SectionHeading'
 import './About.css'
 
-const STACK = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Docker']
+const STACK = ['JavaScript', 'Vue.js', 'Node.js', 'Hapi.js', 'PHP', 'CodeIgniter', 'Flutter', 'SQL']
 
 function About() {
   return (
@@ -11,12 +11,16 @@ function About() {
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            Placeholder paragraph — replace with a short introduction covering who you are,
-            what kind of problems you like to solve, and what drives you as a developer.
+            Software developer with a Bachelor's degree in Informatics, focused on full-stack
+            web development and UI/UX design. Experienced in designing and building
+            web-based information systems and mobile applications — comfortable combining
+            solid backend logic with user-friendly interfaces to deliver practical,
+            effective technology solutions.
           </p>
           <p>
-            Placeholder paragraph — mention your background, the kind of projects or teams
-            you've worked with, and what you're currently focused on learning or building.
+            Currently completing a B.Sc. in Informatics at Universitas Bhayangkara Jakarta
+            Raya (2022–2026), with a Software Development focus and a GPA of 3.69. Thesis
+            project: a web-based student records archive system for elementary schools.
           </p>
           <p className="about-stack-label">Technologies I work with often:</p>
           <ul className="about-stack">

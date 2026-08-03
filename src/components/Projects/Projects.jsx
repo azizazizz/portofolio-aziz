@@ -3,24 +3,28 @@ import './Projects.css'
 
 const PROJECTS = [
   {
-    name: 'Project One',
-    description: 'Placeholder description of what this project does and the problem it solves.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
+    name: 'Sapu Jagat',
+    description:
+      'Full-stack web app built as the capstone project for Coding Camp 2025 powered by DBS Foundation — dynamic client-side, an efficient server-side, and an integrated Machine Learning API.',
+    tags: ['Vue.js', 'Tailwind CSS', 'Node.js', 'Hapi.js'],
   },
   {
-    name: 'Project Two',
-    description: 'Placeholder description — mention the stack, your role, and the outcome.',
-    tags: ['Python', 'Automation', 'CLI'],
+    name: 'UKM Inventory Manager',
+    description:
+      'Mobile app for small-business (UKM) store management built from scratch, with real-time inventory tracking and sales transaction recording.',
+    tags: ['Flutter'],
   },
   {
-    name: 'Project Three',
-    description: 'Placeholder description of a side project, tool, or open-source contribution.',
-    tags: ['JavaScript', 'Node.js', 'Library'],
+    name: 'School Records Archive System',
+    description:
+      'Undergraduate thesis project — a web-based student records archive system built for an elementary school.',
+    tags: ['PHP', 'CodeIgniter', 'SQL'],
   },
   {
-    name: 'Project Four',
-    description: 'Placeholder description highlighting a specific technical challenge you solved.',
-    tags: ['CSS', 'Design System'],
+    name: 'IoT Balance Management System',
+    description:
+      'IoT architecture built from scratch with RFID and Arduino integration, implementing balance management logic in C.',
+    tags: ['Arduino', 'RFID', 'C'],
   },
 ]
 
