@@ -14,7 +14,7 @@ const ROLES = [
   },
   {
     title: 'Final Course Project',
-    company: 'Universitas Bhayangkara Jakarta Raya',
+    company: 'Bhayangkara Jakarta Raya University',
     date: 'Oct — Dec 2024',
     highlights: [
       'Built a store inventory management mobile app for small businesses (UKM) from scratch using Flutter',
@@ -32,7 +32,7 @@ const ROLES = [
   },
   {
     title: 'Final Course Project',
-    company: 'Universitas Bhayangkara Jakarta Raya',
+    company: 'Bhayangkara Jakarta Raya University',
     date: 'Nov — Dec 2022',
     highlights: [
       'Implemented an IoT architecture from scratch integrating RFID and Arduino',
@@ -41,7 +41,7 @@ const ROLES = [
   },
   {
     title: 'B.Sc. in Informatics',
-    company: 'Universitas Bhayangkara Jakarta Raya',
+    company: 'Bhayangkara Jakarta Raya University',
     date: '2022 — 2026',
     highlights: [
       'GPA: 3.69 — Software Development track',

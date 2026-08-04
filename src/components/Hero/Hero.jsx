@@ -1,7 +1,7 @@
 import { useTypewriter } from '../../hooks/useTypewriter'
 import './Hero.css'
 
-const ROLES = ['Full-Stack Web Developer.', 'UI/UX Enthusiast.', 'Mobile App Developer.']
+const ROLES = ['Full-Stack Web Developer.']
 
 function Hero() {
   const typed = useTypewriter(ROLES)

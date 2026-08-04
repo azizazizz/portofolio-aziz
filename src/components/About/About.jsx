@@ -18,8 +18,8 @@ function About() {
             effective technology solutions.
           </p>
           <p>
-            Currently completing a B.Sc. in Informatics at Universitas Bhayangkara Jakarta
-            Raya (2022–2026), with a Software Development focus and a GPA of 3.69. Thesis
+            Currently completing a B.Sc. in Informatics at Bhayangkara Jakarta Raya
+            University (2022–2026), with a Software Development focus and a GPA of 3.69. Thesis
             project: a web-based student records archive system for elementary schools.
           </p>
           <p className="about-stack-label">Technologies I work with often:</p>

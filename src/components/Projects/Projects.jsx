@@ -33,7 +33,7 @@ const PROJECTS = [
     name: 'School Records Archive System',
     description:
       'Undergraduate thesis project — a web-based student records archive system built for an elementary school.',
-    tags: ['PHP', 'CodeIgniter', 'SQL'],
+    tags: ['PHP', 'CodeIgniter', 'Bootstrap', 'SQL'],
     images: loadImages('school-archive'),
   },
   {
