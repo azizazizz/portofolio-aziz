@@ -43,6 +43,9 @@ function ProjectModal({ project, onClose }) {
               <img src={images[index]} alt={`${project.name} screenshot ${index + 1}`} />
               {images.length > 1 && (
                 <>
+                  <span className="modal-counter">
+                    {index + 1} / {images.length}
+                  </span>
                   <button
                     type="button"
                     className="modal-nav prev"
@@ -74,7 +77,7 @@ function ProjectModal({ project, onClose }) {
           <p>{project.description}</p>
           <p className="modal-tags">{project.tags.join('  ·  ')}</p>
 
-          {images && images.length > 1 && (
+          {images && images.length > 1 && images.length <= 10 && (
             <div className="modal-dots">
               {images.map((_, i) => (
                 <button

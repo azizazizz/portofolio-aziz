@@ -103,6 +103,18 @@
   color: var(--accent);
 }
 
+.modal-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 11px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
 .modal-nav.prev {
   left: 14px;
 }

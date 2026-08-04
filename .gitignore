@@ -17,6 +17,10 @@ dist-ssr
 .env.*
 !.env.example
 
+# Raw/unoptimized screenshots and photos (only the cropped+compressed copies are used)
+src/assets/projects/**/Screenshot*.png
+src/assets/projects/**/WhatsApp Image*.jpeg
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

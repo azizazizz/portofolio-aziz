@@ -3,34 +3,45 @@ import SectionHeading from '../SectionHeading/SectionHeading'
 import ProjectModal from './ProjectModal'
 import './Projects.css'
 
+function loadImages(folder) {
+  const modules = import.meta.glob('../../assets/projects/*/*.jpg', {
+    eager: true,
+    import: 'default',
+  })
+  return Object.entries(modules)
+    .filter(([path]) => path.includes(`/projects/${folder}/`))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, url]) => url)
+}
+
 const PROJECTS = [
   {
     name: 'Sapu Jagat',
     description:
       'Full-stack web app built as the capstone project for Coding Camp 2025 powered by DBS Foundation — dynamic client-side, an efficient server-side, and an integrated Machine Learning API.',
     tags: ['Vue.js', 'Tailwind CSS', 'Node.js', 'Hapi.js'],
-    images: [],
+    images: loadImages('sapu-jagat'),
   },
   {
     name: 'UKM Inventory Manager',
     description:
       'Mobile app for small-business (UKM) store management built from scratch, with real-time inventory tracking and sales transaction recording.',
     tags: ['Flutter'],
-    images: [],
+    images: loadImages('ukm-inventory'),
   },
   {
     name: 'School Records Archive System',
     description:
       'Undergraduate thesis project — a web-based student records archive system built for an elementary school.',
     tags: ['PHP', 'CodeIgniter', 'SQL'],
-    images: [],
+    images: loadImages('school-archive'),
   },
   {
     name: 'IoT Balance Management System',
     description:
       'IoT architecture built from scratch with RFID and Arduino integration, implementing balance management logic in C.',
     tags: ['Arduino', 'RFID', 'C'],
-    images: [],
+    images: loadImages('iot-balance'),
   },
 ]
 
