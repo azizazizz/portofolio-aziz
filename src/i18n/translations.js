@@ -45,7 +45,6 @@ export const translations = {
       p3: "Now, as a fresh graduate, I'm looking for somewhere to grow: a team that will mentor and challenge me in equal measure, and a product real people actually depend on. I learn quickly, I'm used to building from nothing, and I don't mind owning the messy parts.",
       stackLabel: 'Technologies I work with often:',
       cv: 'View my CV',
-      cvMissing: 'CV coming soon',
     },
     skills: {
       title: 'Skills',
@@ -253,7 +252,6 @@ export const translations = {
       p3: 'Kini, sebagai fresh graduate, saya sedang mencari tempat untuk bertumbuh: tim yang mau membimbing sekaligus menantang, dan produk yang benar-benar diandalkan orang. Saya cepat belajar, terbiasa membangun dari nol, dan tidak keberatan menangani bagian yang paling rumit.',
       stackLabel: 'Teknologi yang sering saya pakai:',
       cv: 'Lihat CV saya',
-      cvMissing: 'CV segera hadir',
     },
     skills: {
       title: 'Keahlian',

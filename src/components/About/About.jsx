@@ -5,10 +5,10 @@ import './About.css'
 
 const STACK = ['JavaScript', 'Vue.js', 'Node.js', 'Hapi.js', 'PHP', 'CodeIgniter', 'Flutter', 'SQL']
 
-// Drop a PDF into src/assets/cv/ and the button below wires itself up.
-const CV_URL = Object.values(
-  import.meta.glob('../../assets/cv/*.pdf', { eager: true, import: 'default' }),
-)[0]
+// Hosted on Google Drive rather than bundled, so the CV can be swapped out
+// without redeploying the site.
+const CV_URL =
+  'https://drive.google.com/file/d/13YoFfvUX7BOfnCuKQmt4llnMZX0c4vmH/view?usp=sharing'
 
 function About() {
   const { t } = useLanguage()
@@ -31,13 +31,11 @@ function About() {
             ))}
           </ul>
 
-          {CV_URL && (
-            <a href={CV_URL} target="_blank" rel="noreferrer" className="about-cv">
-              <FaRegFilePdf className="about-cv-icon" />
-              {t.about.cv}
-              <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          <a href={CV_URL} target="_blank" rel="noreferrer" className="about-cv">
+            <FaRegFilePdf className="about-cv-icon" />
+            {t.about.cv}
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
         <div className="about-figure" aria-hidden="true">
