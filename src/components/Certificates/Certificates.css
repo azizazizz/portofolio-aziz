@@ -81,7 +81,7 @@
 
 .cert-card {
   flex: 0 0 auto;
-  width: 290px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -95,7 +95,9 @@
 
 .cert-thumb {
   position: relative;
-  aspect-ratio: 4 / 3;
+  /* the certificates are all A4 landscape — matching it here means the preview
+     fills the frame edge to edge instead of sitting letterboxed inside it */
+  aspect-ratio: 297 / 210;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -119,8 +121,7 @@
 .cert-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 8px;
+  object-fit: cover;
 }
 
 .cert-thumb-fallback {
@@ -171,7 +172,7 @@
 
 @media (max-width: 560px) {
   .cert-card {
-    width: 240px;
+    width: 270px;
   }
   .cert-arrows {
     display: none;

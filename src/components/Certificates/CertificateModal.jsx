@@ -79,15 +79,8 @@ function CertificateModal({ certificates, index, onIndexChange, onClose }) {
         </div>
 
         <div className="cert-modal-info">
-          <div>
-            <h3>{cert.title}</h3>
-            {cert.issuer && <p className="cert-modal-issuer">{cert.issuer}</p>}
-          </div>
-          {cert.pdf && (
-            <a href={cert.pdf} target="_blank" rel="noreferrer" className="cert-modal-open">
-              {t.certificates.open} <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          <h3>{cert.title}</h3>
+          {cert.issuer && <p className="cert-modal-issuer">{cert.issuer}</p>}
         </div>
       </div>
     </div>

@@ -64,8 +64,8 @@
 
 .cert-modal-media {
   position: relative;
-  aspect-ratio: 4 / 3;
-  max-height: 62vh;
+  aspect-ratio: 297 / 210;
+  max-height: 68vh;
   background: var(--bg-inset);
   display: flex;
   align-items: center;
@@ -76,8 +76,8 @@
 .cert-modal-media img {
   width: 100%;
   height: 100%;
+  /* contain, not cover: in the lightbox nothing may be cropped away */
   object-fit: contain;
-  padding: 12px;
 }
 
 .cert-modal-fallback {
@@ -134,11 +134,6 @@
 
 .cert-modal-info {
   padding: 22px 28px 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
 }
 
 .cert-modal-info h3 {
@@ -152,26 +147,8 @@
   color: var(--text-dim);
 }
 
-.cert-modal-open {
-  flex-shrink: 0;
-  font-size: 13px;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  padding: 10px 18px;
-  transition: background 0.15s ease;
-}
-
-.cert-modal-open:hover {
-  background: var(--accent-soft);
-}
-
 @media (max-width: 560px) {
   .cert-modal-info {
     padding: 18px 18px 22px;
-  }
-  .cert-modal-open {
-    width: 100%;
-    text-align: center;
   }
 }
