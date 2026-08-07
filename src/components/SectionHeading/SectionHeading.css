@@ -1,9 +1,12 @@
+.section-heading-block {
+  margin-bottom: 40px;
+}
+
 .section-heading {
   display: flex;
   align-items: center;
   gap: 14px;
   font-size: 20px;
-  margin-bottom: 40px;
   white-space: nowrap;
 }
 
@@ -19,9 +22,20 @@
   min-width: 40px;
 }
 
+.section-subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: 0.2px;
+}
+
 @media (max-width: 560px) {
   .section-heading {
     font-size: 17px;
     gap: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 12.5px;
   }
 }

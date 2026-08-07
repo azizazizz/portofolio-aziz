@@ -6,8 +6,11 @@ export function useTypewriter(words, { typeSpeed = 70, deleteSpeed = 40, pause =
   const [subIndex, setSubIndex] = useState(0)
   const [deleting, setDeleting] = useState(false)
 
+  // Guard against the word list shrinking underneath us (e.g. on a language switch).
+  const safeIndex = index < words.length ? index : 0
+
   useEffect(() => {
-    const current = words[index]
+    const current = words[safeIndex]
 
     if (!deleting && subIndex === current.length) {
       const timeout = setTimeout(() => setDeleting(true), pause)
@@ -25,7 +28,7 @@ export function useTypewriter(words, { typeSpeed = 70, deleteSpeed = 40, pause =
       deleting ? deleteSpeed : typeSpeed,
     )
     return () => clearTimeout(timeout)
-  }, [subIndex, deleting, index, words, typeSpeed, deleteSpeed, pause])
+  }, [subIndex, deleting, safeIndex, words, typeSpeed, deleteSpeed, pause])
 
-  return words[index].slice(0, subIndex)
+  return words[safeIndex].slice(0, subIndex)
 }

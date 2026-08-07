@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SectionHeading from '../SectionHeading/SectionHeading'
 import ProjectModal from './ProjectModal'
+import { useLanguage } from '../../hooks/useLanguage'
 import './Projects.css'
 
 function loadImages(folder) {
@@ -16,30 +17,22 @@ function loadImages(folder) {
 
 const PROJECTS = [
   {
-    name: 'Sapu Jagat',
-    description:
-      'Full-stack web app built as the capstone project for Coding Camp 2025 powered by DBS Foundation — dynamic client-side, an efficient server-side, and an integrated Machine Learning API.',
+    id: 'sapu-jagat',
     tags: ['Vue.js', 'Tailwind CSS', 'Node.js', 'Hapi.js'],
     images: loadImages('sapu-jagat'),
   },
   {
-    name: 'UKM Inventory Manager',
-    description:
-      'Mobile app for small-business (UKM) store management built from scratch, with real-time inventory tracking and sales transaction recording.',
+    id: 'ukm-inventory',
     tags: ['Flutter'],
     images: loadImages('ukm-inventory'),
   },
   {
-    name: 'School Records Archive System',
-    description:
-      'Undergraduate thesis project — a web-based student records archive system built for an elementary school.',
+    id: 'school-archive',
     tags: ['PHP', 'CodeIgniter', 'Bootstrap', 'SQL'],
     images: loadImages('school-archive'),
   },
   {
-    name: 'IoT Balance Management System',
-    description:
-      'IoT architecture built from scratch with RFID and Arduino integration, implementing balance management logic in C.',
+    id: 'iot-balance',
     tags: ['Arduino', 'RFID', 'C'],
     images: loadImages('iot-balance'),
   },
@@ -57,25 +50,33 @@ function ProjectMedia({ project, index }) {
 }
 
 function Projects() {
-  const [activeProject, setActiveProject] = useState(null)
+  const { t } = useLanguage()
+  const [activeId, setActiveId] = useState(null)
+
+  // Resolve copy at render time so an open modal follows a language switch.
+  const projects = PROJECTS.map((project) => ({
+    ...project,
+    ...t.projects.items[project.id],
+  }))
+  const activeProject = projects.find((project) => project.id === activeId) || null
 
   return (
     <section id="projects" className="section projects">
-      <SectionHeading number="03" title="Selected Work" />
+      <SectionHeading number="03" title={t.projects.title} subtitle={t.projects.subtitle} />
 
       <div className="project-list">
-        {PROJECTS.map((project, i) => (
+        {projects.map((project, i) => (
           <button
             type="button"
             className="project-card"
-            key={project.name}
-            onClick={() => setActiveProject(project)}
+            key={project.id}
+            onClick={() => setActiveId(project.id)}
           >
             <div className="project-media">
               <ProjectMedia project={project} index={i} />
               <div className="media-overlay">
                 <span>
-                  View Project <span aria-hidden="true">↗</span>
+                  {t.projects.view} <span aria-hidden="true">↗</span>
                 </span>
               </div>
             </div>
@@ -91,7 +92,7 @@ function Projects() {
       </div>
 
       {activeProject && (
-        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
+        <ProjectModal project={activeProject} onClose={() => setActiveId(null)} />
       )}
     </section>
   )

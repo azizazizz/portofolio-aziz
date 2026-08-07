@@ -5,9 +5,7 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <p>
-        © {year} Nur Aziz Raihan — Built with React &amp; Vite
-      </p>
+      <p>© {year} Nur Aziz Raihan</p>
     </footer>
   )
 }

@@ -35,7 +35,9 @@
 
 .contact-socials {
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-top: 20px;
 }
 

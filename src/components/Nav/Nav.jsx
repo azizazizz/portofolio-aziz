@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import LanguageToggle from '../LanguageToggle/LanguageToggle'
+import { useLanguage } from '../../hooks/useLanguage'
 import './Nav.css'
 
 const LINKS = [
-  { id: 'about', num: '01', label: 'About' },
-  { id: 'skills', num: '02', label: 'Skills' },
-  { id: 'projects', num: '03', label: 'Work' },
-  { id: 'experience', num: '04', label: 'Experience' },
-  { id: 'contact', num: '05', label: 'Contact' },
+  { id: 'about', num: '01', key: 'about' },
+  { id: 'skills', num: '02', key: 'skills' },
+  { id: 'projects', num: '03', key: 'work' },
+  { id: 'experience', num: '04', key: 'experience' },
+  { id: 'certificates', num: '05', key: 'certificates' },
+  { id: 'contact', num: '06', key: 'contact' },
 ]
 
 function Nav() {
+  const { t } = useLanguage()
   const [active, setActive] = useState('')
   const [scrolled, setScrolled] = useState(false)
 
@@ -50,8 +54,9 @@ function Nav() {
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-inner">
-        <a href="#top" className="nav-logo" onClick={handleClick('top')}>
-          <span className="mark">&lt;/&gt;</span>
+        <a href="#top" className="nav-logo" onClick={handleClick('top')} aria-label={t.nav.home}>
+          <span className="logo-word">AZIZ</span>
+          <span className="logo-dot" aria-hidden="true">.</span>
         </a>
 
         <div className="nav-links">
@@ -63,15 +68,16 @@ function Nav() {
               className={`nav-link${active === link.id ? ' active' : ''}`}
             >
               <span className="num">{link.num}.</span>
-              {link.label}
+              {t.nav[link.key]}
             </a>
           ))}
         </div>
 
         <div className="nav-actions">
+          <LanguageToggle />
           <ThemeToggle />
           <a href="#contact" onClick={handleClick('contact')} className="nav-cta">
-            Say hi
+            {t.nav.cta}
           </a>
         </div>
       </div>

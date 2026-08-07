@@ -10,11 +10,12 @@ import {
   SiVuedotjs,
 } from 'react-icons/si'
 import SectionHeading from '../SectionHeading/SectionHeading'
+import { useLanguage } from '../../hooks/useLanguage'
 import './Skills.css'
 
 const GROUPS = [
   {
-    label: 'Frontend',
+    key: 'frontend',
     items: [
       { name: 'HTML', icon: FaHtml5, color: '#e34f26' },
       { name: 'CSS', icon: FaCss3Alt, color: '#1572b6' },
@@ -25,7 +26,7 @@ const GROUPS = [
     ],
   },
   {
-    label: 'Backend',
+    key: 'backend',
     items: [
       { name: 'PHP', icon: SiPhp, color: '#777bb4' },
       { name: 'CodeIgniter', icon: SiCodeigniter, color: '#ef4223' },
@@ -35,40 +36,43 @@ const GROUPS = [
     ],
   },
   {
-    label: 'Mobile',
+    key: 'mobile',
     items: [{ name: 'Flutter', icon: SiFlutter, color: '#02569b' }],
   },
   {
-    label: 'Tools & Other',
+    key: 'tools',
     items: [
       { name: 'Git', icon: FaGitAlt, color: '#f05032' },
       { name: 'GitHub', icon: FaGithub, color: null },
       { name: 'Arduino / IoT', icon: SiArduino, color: '#00979d' },
-      { name: 'Cybersecurity Fundamentals', icon: null },
+      { tKey: 'security', icon: null },
     ],
   },
 ]
 
 function Skills() {
+  const { t } = useLanguage()
+
   return (
     <section id="skills" className="section skills">
-      <SectionHeading number="02" title="Skills" />
+      <SectionHeading number="02" title={t.skills.title} subtitle={t.skills.subtitle} />
 
       <div className="skills-grid">
         {GROUPS.map((group) => (
-          <div className="skill-group" key={group.label}>
-            <p className="skill-group-label">{group.label}</p>
+          <div className="skill-group" key={group.key}>
+            <p className="skill-group-label">{t.skills.groups[group.key]}</p>
             <div className="skill-chips">
               {group.items.map((item) => {
                 const Icon = item.icon
+                const label = item.name || t.skills.items[item.tKey]
                 return (
                   <span
                     className="chip"
-                    key={item.name}
+                    key={item.name || item.tKey}
                     style={{ '--chip-color': item.color || 'var(--accent)' }}
                   >
                     {Icon && <Icon className="chip-icon" style={{ color: item.color }} />}
-                    {item.name}
+                    {label}
                   </span>
                 )
               })}

@@ -1,5 +1,6 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import SectionHeading from '../SectionHeading/SectionHeading'
+import { useLanguage } from '../../hooks/useLanguage'
 import './Contact.css'
 
 const SOCIALS = [
@@ -10,21 +11,26 @@ const SOCIALS = [
     icon: FaLinkedin,
     color: '#0a66c2',
   },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/azizraihan_/',
+    icon: FaInstagram,
+    color: '#e4405f',
+  },
 ]
 
 function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="section contact">
-      <SectionHeading number="05" title="Contact" />
+      <SectionHeading number="06" title={t.contact.title} subtitle={t.contact.subtitle} />
 
       <div className="contact-content">
-        <h3 className="contact-heading">Let's build something together.</h3>
-        <p className="contact-text">
-          Placeholder — I'm currently open to new opportunities. Whether you have a question
-          or just want to say hi, my inbox is always open.
-        </p>
-        <a href="mailto:you@example.com" className="contact-email">
-          you@example.com
+        <h3 className="contact-heading">{t.contact.heading}</h3>
+        <p className="contact-text">{t.contact.text}</p>
+        <a href="mailto:zizraihan508@gmail.com" className="contact-email">
+          zizraihan508@gmail.com
         </a>
 
         <div className="contact-socials">

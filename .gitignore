@@ -21,6 +21,11 @@ dist-ssr
 src/assets/projects/**/Screenshot*.png
 src/assets/projects/**/WhatsApp Image*.jpeg
 
+# Certificate PDFs (~12MB). The compressed .jpg previews ARE committed, so the
+# gallery still works; only the "Open PDF" link is absent on a fresh clone.
+# The CV pdf is intentionally NOT ignored — the About button depends on it.
+src/assets/certificates/*.pdf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

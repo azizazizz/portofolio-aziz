@@ -1,33 +1,43 @@
+import { FaRegFilePdf } from 'react-icons/fa'
 import SectionHeading from '../SectionHeading/SectionHeading'
+import { useLanguage } from '../../hooks/useLanguage'
 import './About.css'
 
 const STACK = ['JavaScript', 'Vue.js', 'Node.js', 'Hapi.js', 'PHP', 'CodeIgniter', 'Flutter', 'SQL']
 
+// Drop a PDF into src/assets/cv/ and the button below wires itself up.
+const CV_URL = Object.values(
+  import.meta.glob('../../assets/cv/*.pdf', { eager: true, import: 'default' }),
+)[0]
+
 function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="about" className="section about">
-      <SectionHeading number="01" title="About Me" />
+      <SectionHeading number="01" title={t.about.title} subtitle={t.about.subtitle} />
+
+      <p className="about-lead">{t.about.lead}</p>
 
       <div className="about-grid">
         <div className="about-copy">
-          <p>
-            Software developer with a Bachelor's degree in Informatics, focused on full-stack
-            web development and UI/UX design. Experienced in designing and building
-            web-based information systems and mobile applications — comfortable combining
-            solid backend logic with user-friendly interfaces to deliver practical,
-            effective technology solutions.
-          </p>
-          <p>
-            Currently completing a B.Sc. in Informatics at Bhayangkara Jakarta Raya
-            University (2022–2026), with a Software Development focus and a GPA of 3.69. Thesis
-            project: a web-based student records archive system for elementary schools.
-          </p>
-          <p className="about-stack-label">Technologies I work with often:</p>
+          <p>{t.about.p1}</p>
+          <p>{t.about.p2}</p>
+          <p>{t.about.p3}</p>
+          <p className="about-stack-label">{t.about.stackLabel}</p>
           <ul className="about-stack">
             {STACK.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
+
+          {CV_URL && (
+            <a href={CV_URL} target="_blank" rel="noreferrer" className="about-cv">
+              <FaRegFilePdf className="about-cv-icon" />
+              {t.about.cv}
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
         </div>
 
         <div className="about-figure" aria-hidden="true">

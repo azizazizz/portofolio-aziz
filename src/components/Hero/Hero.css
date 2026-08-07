@@ -7,6 +7,66 @@
   gap: 20px;
 }
 
+/* --- entrance --- */
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* `backwards` holds the from-state during the delay, so nothing flashes first */
+.hero > * {
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.hero-status {
+  animation-delay: 0.05s;
+}
+.hero-name {
+  animation-delay: 0.16s;
+}
+.hero-role {
+  animation-delay: 0.28s;
+}
+.hero-bio {
+  animation-delay: 0.4s;
+}
+.hero-stats {
+  animation-delay: 0.52s;
+}
+.hero-cta {
+  animation-delay: 0.9s;
+}
+
+/* the three figures land one after another, just behind their container */
+.hero-stat {
+  animation: hero-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.hero-stat:nth-child(1) {
+  animation-delay: 0.62s;
+}
+.hero-stat:nth-child(2) {
+  animation-delay: 0.72s;
+}
+.hero-stat:nth-child(3) {
+  animation-delay: 0.82s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > *,
+  .hero-stat {
+    animation: none;
+  }
+}
+
 .hero-status {
   display: flex;
   align-items: center;
@@ -61,6 +121,36 @@
   font-size: 15px;
   line-height: 1.8;
   color: var(--text);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  margin: 10px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--border);
+  width: min(560px, 100%);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.hero-stat-label {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.3px;
 }
 
 .hero-cta {

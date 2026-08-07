@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useLanguage } from '../../hooks/useLanguage'
 import './ProjectModal.css'
 
 function ProjectModal({ project, onClose }) {
+  const { t } = useLanguage()
   const images = project.images && project.images.length > 0 ? project.images : null
   const [index, setIndex] = useState(0)
 
@@ -33,14 +35,22 @@ function ProjectModal({ project, onClose }) {
         aria-modal="true"
         aria-label={project.name}
       >
-        <button type="button" className="modal-close" onClick={onClose} aria-label="Close">
+        <button
+          type="button"
+          className="modal-close"
+          onClick={onClose}
+          aria-label={t.modal.close}
+        >
           ✕
         </button>
 
         <div className="modal-media">
           {images ? (
             <>
-              <img src={images[index]} alt={`${project.name} screenshot ${index + 1}`} />
+              <img
+                src={images[index]}
+                alt={`${project.name} ${t.modal.screenshot} ${index + 1}`}
+              />
               {images.length > 1 && (
                 <>
                   <span className="modal-counter">
@@ -50,7 +60,7 @@ function ProjectModal({ project, onClose }) {
                     type="button"
                     className="modal-nav prev"
                     onClick={prev}
-                    aria-label="Previous screenshot"
+                    aria-label={t.modal.prev}
                   >
                     ‹
                   </button>
@@ -58,7 +68,7 @@ function ProjectModal({ project, onClose }) {
                     type="button"
                     className="modal-nav next"
                     onClick={next}
-                    aria-label="Next screenshot"
+                    aria-label={t.modal.next}
                   >
                     ›
                   </button>
@@ -67,7 +77,7 @@ function ProjectModal({ project, onClose }) {
             </>
           ) : (
             <div className="modal-placeholder">
-              <span>Screenshots coming soon</span>
+              <span>{t.modal.comingSoon}</span>
             </div>
           )}
         </div>
@@ -85,7 +95,7 @@ function ProjectModal({ project, onClose }) {
                   type="button"
                   className={`dot${i === index ? ' active' : ''}`}
                   onClick={() => setIndex(i)}
-                  aria-label={`Go to screenshot ${i + 1}`}
+                  aria-label={`${t.modal.goTo} ${i + 1}`}
                 />
               ))}
             </div>

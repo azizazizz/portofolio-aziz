@@ -1,4 +1,5 @@
 import { useTheme } from '../../hooks/useTheme'
+import { useLanguage } from '../../hooks/useLanguage'
 import './ThemeToggle.css'
 
 function SunIcon() {
@@ -27,6 +28,7 @@ function MoonIcon() {
 
 function ThemeToggle() {
   const { theme, toggle } = useTheme()
+  const { t } = useLanguage()
   const isDark = theme === 'dark'
 
   return (
@@ -34,7 +36,7 @@ function ThemeToggle() {
       type="button"
       className="theme-toggle"
       onClick={toggle}
-      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-label={isDark ? t.theme.toLight : t.theme.toDark}
       title={isDark ? 'light_mode()' : 'dark_mode()'}
     >
       {isDark ? <SunIcon /> : <MoonIcon />}

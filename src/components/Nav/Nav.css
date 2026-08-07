@@ -26,28 +26,58 @@
 }
 
 .nav-logo {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  width: 34px;
-  height: 34px;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
   flex-shrink: 0;
-  transition: border-color 0.15s ease;
+  padding: 4px 2px 5px;
+  color: var(--text-bright);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.2s ease;
 }
 
-.nav-logo:hover {
-  border-color: var(--accent);
+.logo-word {
+  letter-spacing: 3.5px;
+  /* letter-spacing also trails the final Z — pull the dot back against it */
+  margin-right: -3.5px;
+  transition: letter-spacing 0.25s ease;
+}
+
+.logo-dot {
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 0;
+}
+
+/* accent rule that sweeps in from the left on hover */
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.nav-logo:hover .logo-word {
+  letter-spacing: 4.5px;
+  margin-right: -4.5px;
+}
+
+.nav-logo:hover::after {
+  transform: scaleX(1);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   margin: 0 auto;
 }
 
@@ -74,7 +104,7 @@
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -93,7 +123,13 @@
   background: var(--accent-soft);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+  .nav-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 880px) {
   .nav-inner {
     gap: 14px;
   }
@@ -101,6 +137,10 @@
     gap: 16px;
     overflow-x: auto;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 8px;
+    /* soften the cut-off edge so it reads as scrollable, not clipped */
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
   }
   .nav-links::-webkit-scrollbar {
     display: none;
@@ -108,8 +148,22 @@
   .nav-link .num {
     display: none;
   }
-  .nav-cta {
-    display: none;
+}
+
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .nav-logo {
+    font-size: 14px;
+  }
+  .logo-word {
+    letter-spacing: 2px;
+    margin-right: -2px;
+  }
+  .logo-dot {
+    font-size: 16px;
   }
 }
 

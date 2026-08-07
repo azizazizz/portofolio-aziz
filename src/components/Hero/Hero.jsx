@@ -1,16 +1,16 @@
 import { useTypewriter } from '../../hooks/useTypewriter'
+import { useLanguage } from '../../hooks/useLanguage'
 import './Hero.css'
 
-const ROLES = ['Full-Stack Web Developer.']
-
 function Hero() {
-  const typed = useTypewriter(ROLES)
+  const { t } = useLanguage()
+  const typed = useTypewriter(t.hero.roles)
 
   return (
     <section id="home" className="hero section">
       <p className="hero-status">
         <span className="status-dot" />
-        Open to new opportunities
+        {t.hero.status}
       </p>
 
       <h1 className="hero-name">Nur Aziz Raihan</h1>
@@ -20,18 +20,23 @@ function Hero() {
         <span className="cursor" />
       </p>
 
-      <p className="hero-bio">
-        Informatics graduate focused on full-stack web development and UI/UX design —
-        combining backend logic with user-friendly interfaces to build practical software
-        solutions.
-      </p>
+      <p className="hero-bio">{t.hero.bio}</p>
+
+      <dl className="hero-stats">
+        {t.hero.stats.map((stat) => (
+          <div className="hero-stat" key={stat.label}>
+            <dt className="hero-stat-value">{stat.value}</dt>
+            <dd className="hero-stat-label">{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
 
       <div className="hero-cta">
         <a href="#projects" className="btn btn-primary">
-          View my work
+          {t.hero.ctaWork}
         </a>
         <a href="#contact" className="btn btn-ghost">
-          Get in touch <span aria-hidden="true">→</span>
+          {t.hero.ctaContact} <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
